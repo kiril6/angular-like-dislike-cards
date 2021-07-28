@@ -1,0 +1,26 @@
+:host {
+    overflow-x: auto;
+    width: 100%;
+}
+
+h1 {
+    position: fixed;
+    top: 100px;
+    width: 100%;
+    text-align: center;
+}
+
+.likes {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .food-items {
+        margin: 50px 30px 10px 30px;
+
+        mat-card {
+            width: 200px;
+            height: 440px;
+        }
+    }
+}

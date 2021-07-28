@@ -1,0 +1,25 @@
+<div class="header">
+    <div *ngIf="router.url === '/machine-food' && (loaderService.isLoading | async)" class="loader-container">
+      <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+    </div>
+  
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <button [routerLink]="'/'" mat-raised-button>
+          <mat-icon aria-hidden="false" aria-label="home">home</mat-icon>
+        </button>
+        <span class="toolbar-spacer"></span>
+  
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button [routerLink]="'/machine-food'" mat-menu-item>List food</button>
+          <button [routerLink]="'/machine-food/likes'" mat-menu-item>Liked food</button>
+          <button [routerLink]="'/machine-food/dislikes'" mat-menu-item>Disliked food</button>
+        </mat-menu>
+  
+      </mat-toolbar-row>
+    </mat-toolbar>
+  
+  </div>

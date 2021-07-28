@@ -1,0 +1,61 @@
+.food-items {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    .food-card {
+        width: 250px;
+        height: 520px;
+        top: 120px;
+        position: fixed;
+
+        mat-card-header {
+            flex-direction: column;
+        }
+
+        .liked,
+        .disliked {
+            position: absolute;
+            top: 40%;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            visibility: hidden;
+
+            &.active {
+                visibility: visible;
+            }
+
+            mat-icon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 80px;
+                width: 80px;
+                font-size: 4em;
+                border-radius: 50%;
+                border: 3px solid gray;
+                background-color: rgba(256, 256, 256, .9);
+            }
+        }
+
+        mat-card-content {
+            div {
+                padding-top: 16px;
+                padding-bottom: 6px;
+                font-weight: bolder;
+                font-size: 18px;
+            }
+        }
+
+        mat-card-actions {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            width: 90%;
+            left: 20px;
+            bottom: 14px;
+        }
+    }
+}

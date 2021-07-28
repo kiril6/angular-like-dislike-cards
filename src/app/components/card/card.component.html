@@ -1,0 +1,57 @@
+<div class="food-items" *ngFor="let product of filteredProducts(); let i = index">
+
+    <mat-card class="food-card" *ngIf="!cleanCompleted(i)">
+        <div *ngIf="infoShown[i]=== undefined || infoShown[i] === false">
+
+            <mat-card-header>
+                <mat-card-title>{{product.name}}</mat-card-title>
+                <mat-card-subtitle>{{product.shortDescription}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="product.imageSet[0].url" alt="product photo">
+
+            <div class="liked" [ngClass]="isLiked ? ' active' : ''">
+                <mat-icon color="accent" aria-hidden="false" aria-label="thumb up">thumb_up</mat-icon>
+            </div>
+            <div class="disliked" [ngClass]="isDisliked ? ' active' : ''">
+                <mat-icon color="warn" aria-hidden="false" aria-label="thumb down">thumb_down</mat-icon>
+            </div>
+
+            <mat-card-content>
+                <p>
+                    {{product.attributesMap.description.value}}
+                </p>
+            </mat-card-content>
+
+        </div>
+
+        <div *ngIf="infoShown[i]=== true">
+            <mat-card-content>
+                <div>Manufacturer:</div>
+                {{product.manufacturer}}
+                <div>Ingredients:</div>
+                <p>
+                    {{product.attributesMap.ingredients.value}}
+                </p>
+            </mat-card-content>
+        </div>
+        <mat-card-actions
+            [ngStyle]="{'justify-content': infoShown[i]=== undefined || infoShown[i]=== false ? '' : 'center'}">
+            <button *ngIf="infoShown[i]=== undefined || infoShown[i]=== false"
+                (click)="actionsBtn(i, 'dislikes', product.id)" color="warn" mat-icon-button>
+                <mat-icon aria-hidden="false" aria-label="thumb down">thumb_down</mat-icon>
+            </button>
+            <button (click)="infoBtn(i)" mat-icon-button>
+                <mat-icon aria-hidden="false" aria-label="info">information</mat-icon>
+            </button>
+            <button *ngIf="infoShown[i]=== undefined || infoShown[i]=== false"
+                (click)="actionsBtn(i, 'likes', product.id)" color="accent" mat-icon-button>
+                <mat-icon aria-hidden="false" aria-label="thumb up">thumb_up</mat-icon>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+
+    <div *ngIf="cleanCompleted(i) && i === 0">
+        <strong>NO FOOD CARDS LEFT</strong>
+    </div>
+
+</div>

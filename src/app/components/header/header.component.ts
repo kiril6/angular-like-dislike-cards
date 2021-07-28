@@ -1,0 +1,19 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoaderService } from '../../core/services/loader.service';
+
+@Component({
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
+})
+export class HeaderComponent implements OnInit {
+
+  constructor(public loaderService: LoaderService, public router: Router) {
+
+  }
+
+  ngOnInit(): void {
+  }
+
+}
